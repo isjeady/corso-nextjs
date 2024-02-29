@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { inter } from "./fonts";
+import NextAuthProvider from "./next-auth-provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,11 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={"border-2 border-blue-600 m-2 " + inter.className}>
-        <div>LAYOUT ROOT</div>
-        {children}
-      </body>
-    </html>
+    <NextAuthProvider>
+      <html lang="en">
+        <body className={"border-2 border-blue-600 m-2 " + inter.className}>
+          <div>LAYOUT ROOT</div>
+          {children}
+        </body>
+      </html>
+    </NextAuthProvider>
   );
 }

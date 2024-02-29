@@ -1,12 +1,20 @@
-/* eslint-disable react/display-name */
-/* eslint-disable import/no-anonymous-default-export */
 "use client";
+import React from "react";
 import { signOut } from "next-auth/react";
 
-import React from "react";
-
 const Logout = () => {
-  return <button onClick={() => signOut()}>Sign out</button>;
+  const handleLogout = () => {
+    signOut();
+  };
+
+  return (
+    <button
+      onClick={handleLogout}
+      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Logout
+    </button>
+  );
 };
 
 export default Logout;
