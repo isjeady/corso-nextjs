@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Posts from "./posts/_components/Posts";
+import Posts from "./_components/Posts";
 
 export default async function Dashboard(): Promise<JSX.Element> {
   return (

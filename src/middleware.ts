@@ -6,8 +6,8 @@ import { cookies } from "next/headers";
 export function middleware(request: NextRequest) {
   let cookie = request.cookies.get("token");
   console.log("cookie", cookie);
+  return NextResponse.next();
   if (cookie && cookie.value === "valid") {
-    return NextResponse.next();
   }
 
   return NextResponse.redirect(new URL("/", request.url));

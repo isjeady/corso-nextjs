@@ -9,9 +9,9 @@ const PostPage = async ({ params }: { params: { postId: string[] } }) => {
   return (
     <div>
       PostPage :
-      {/*  <pre>
+      <pre>
         <code>{JSON.stringify(params.postId, undefined, 2)}</code>
-      </pre> */}
+      </pre>
       <div className="text-xl font-bold">Title : {data.title}</div>
       <div className="text-base border p-2 ">Body : {data.body}</div>
       {/*     <pre>
