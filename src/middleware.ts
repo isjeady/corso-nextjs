@@ -1,19 +1,19 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
+// This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  const isAuthenticated = true; //authenticate(request);
-
-  // If the user is authenticated, continue as normal
-  if (isAuthenticated) {
+  let cookie = request.cookies.get("token");
+  console.log("cookie", cookie);
+  if (cookie && cookie.value === "valid") {
     return NextResponse.next();
   }
 
-  // Redirect to login page if not authenticated
-  return NextResponse.redirect(
-    new URL("/login?error=Area Privata", request.url)
-  );
+  return NextResponse.redirect(new URL("/", request.url));
 }
 
+// See "Matching Paths" below to learn more
 export const config = {
   matcher: "/dashboard/:path*",
 };
